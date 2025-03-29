@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="BTC_ServerLogger">
+    <Package name="ServerLogger">
+        <Container name="ServerLogger">
+        </Container>
+    </Package>
+</Project>
