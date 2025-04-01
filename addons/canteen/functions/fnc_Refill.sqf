@@ -1,4 +1,4 @@
-﻿/* ----------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------
 Function: btc_canteen_fnc_Refill
 
 Description:
@@ -28,7 +28,7 @@ Author:
 #include "script_component.hpp"
 if(!params[
 	["_item","",[""]]
-]) exitWith {ERROR_MSG(format["btc_canteen_fnc_Refill: bad params %1", _this])};
+]) exitWith {ERROR_MSG_1(format["btc_canteen_fnc_Refill: bad params %1",_this])};
 
 
 [5,	_this,

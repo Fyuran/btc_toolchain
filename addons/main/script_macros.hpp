@@ -18,9 +18,9 @@
     #define PREP(fncName) [QPATHTOF(functions\DOUBLES(fnc,fncName).sqf), QFUNC(fncName)] call SLX_XEH_COMPILE_NEW
 #endif
 
-#define MAG_XX(a,b) class _xx_##a {magazine = a; count = b;}
-#define WEAP_XX(a,b) class _xx_##a {weapon = a; count = b;}
-#define ITEM_XX(a,b) class _xx_##a {name = a; count = b;}
+#define MAG_XX(a,b) class _xx_##a {magazine = #a; count = b;}
+#define WEAP_XX(a,b) class _xx_##a {weapon = #a; count = b;}
+#define ITEM_XX(a,b) class _xx_##a {name = #a; count = b;}
 
 // BEGIN ACE3 reference macros
 

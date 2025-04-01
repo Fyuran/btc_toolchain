@@ -197,12 +197,12 @@ class CfgVehicles {
 };
 class CfgSounds {
 	class GVAR(Drink_sound) {
-		name = GVAR(Drink_sound);
+		name = QGVAR(Drink_sound);
 		sound[] = {"\z\btc\addons\canteen\data\drink.ogg",2,1,15};
 		titles[] = {};
 	};
 	class GVAR(Refill_sound) {
-		name = GVAR(Refill_sound);
+		name = QGVAR(Refill_sound);
 		sound[] = {"\z\btc\addons\canteen\data\pour.ogg",2,1,15};
 		titles[] = {};
 	};

@@ -1,0 +1,24 @@
+name: HEMTT
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+    - uses: actions/checkout@v4
+    - uses: arma-actions/hemtt@v1
+      name: Setup HEMTT
+    - name: Release
+      run: hemtt release
+    - uses: actions/upload-artifact@v4
+      name: Upload
+      with:
+        name: 'btc_toolchain'
+        path: '.hemttout/release/addons/'
+        if-no-files-found: error
+        compression-level: 0

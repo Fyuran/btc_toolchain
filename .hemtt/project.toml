@@ -1,0 +1,27 @@
+name = "=BTC= Toolchain"
+author = "=BTC= Fyuran"
+prefix = "btc"
+mainprefix = "z"
+
+[properties]
+author = "Fyuran"
+url = "https://www.blacktemplars.it/"
+
+[files]
+include = [
+    "mod.cpp",
+    "LICENSE.md",
+    "logo_small.paa",
+    "logo.paa"
+]
+
+[version]
+major = 1
+minor = 1
+patch = 0
+build = 0 # Optional
+git_hash = 0
+
+[hemtt.release]
+sign = true
+archive = false
