@@ -20,7 +20,7 @@ jobs:
       with:
         name: 'btc_toolchain'
         path: |
-          '.hemttout/release/addons/*.pbo'
-          '.hemttout/release/optionals/*/addons/*.pbo'
+          .hemttout\release\addons\*.pbo
+          .hemttout\release\optionals\*\addons\*.pbo
         if-no-files-found: error
         compression-level: 0
