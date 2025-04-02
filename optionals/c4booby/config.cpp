@@ -8,9 +8,10 @@ class CfgPatches {
 		QGVAR(CargoNet_01_box_F),QGVAR(B_CargoNet_01_ammo_F),QGVAR(I_CargoNet_01_ammo_F),
 		QGVAR(O_CargoNet_01_ammo_F),QGVAR(I_E_CargoNet_01_ammo_F),QGVAR(C_IDAP_CargoNet_01_supplies_F)};
 		url = "http://www.blacktemplars.altervista.org";
-		requiredVersion = 0.1;
+		requiredVersion = 2.18;
 		weapons[] = {};
 		requiredAddons[] = {"btc_main"};
+		VERSION_CONFIG;
 	};
 };
 
@@ -39,7 +40,6 @@ class CfgVehicles {
 				defaultValue = "60";
 				//--- Optional properties
 				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
-				condition = "object"; // Condition for attribute to appear
 				validate = "number"; // Validate the value before saving. Can be "none", "expression", "condition", "number" or "variable"
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
@@ -58,7 +58,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};
@@ -77,7 +76,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};
@@ -96,7 +94,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};
@@ -115,7 +112,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};
@@ -134,7 +130,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};
@@ -153,7 +148,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};
@@ -172,7 +166,6 @@ class CfgVehicles {
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
 				unique = 0;
-				condition = "object";
 				validate = "number";
 				typeName = "NUMBER";
 			};

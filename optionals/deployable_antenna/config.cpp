@@ -6,9 +6,10 @@ class CfgPatches {
         authors[] = {"=BTC=Fyuran"};
 		units[] = {QGVAR(DeployableAntenna_Item)};
 		url = "http://www.blacktemplars.it";
-		requiredVersion = 0.1;
+		requiredVersion = 2.18;
 		weapons[] = {QGVAR(DeployableAntenna)};
 		requiredAddons[] = {"btc_main"};
+		VERSION_CONFIG;
 	};
 };
 

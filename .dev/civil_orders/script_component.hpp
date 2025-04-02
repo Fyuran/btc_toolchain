@@ -1,2 +1,2 @@
 #define COMPONENT civil_orders
-#include "\z\btc\addons\main\script_macros.hpp"
+#include "\x\cba\addons\main\script_macros_common.hpp"

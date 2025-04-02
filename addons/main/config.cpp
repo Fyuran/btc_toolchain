@@ -1,4 +1,4 @@
-#include "script_macros.hpp"
+#include "script_component.hpp"
 #define true 1
 #define false 0
 
@@ -7,7 +7,7 @@ class CfgPatches {
         name = "=BTC= Toolchain main";
         units[] = {};
         weapons[] = {};
-        requiredVersion = 0.1;
+        requiredVersion = 2.18;
         requiredAddons[] = {"cba_main", "ace_medical_feedback", "ace_interaction"};
         author = "=BTC= Black Templars Clan";
         authors[] = {"=BTC=Fyuran"};

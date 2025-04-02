@@ -44,9 +44,10 @@ class CfgPatches {
         authors[] = {"=BTC=Fyuran"};
 		units[] = {"ACE_Canteen_Nearly_Empty_Item","ACE_Canteen_Nearly_Full_Item"};
 		url = "http://www.blacktemplars.it";
-		requiredVersion = 0.1;
+		requiredVersion = 2.18;
 		weapons[] = {"ACE_Canteen_Nearly_Empty","ACE_Canteen_Nearly_Full"};
 		requiredAddons[] = {"btc_main"};
+		VERSION_CONFIG;
 	};
 };
 

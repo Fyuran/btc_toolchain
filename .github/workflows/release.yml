@@ -19,6 +19,8 @@ jobs:
       name: Upload
       with:
         name: 'btc_toolchain'
-        path: '.hemttout/release/addons/'
+        path: |
+          '.hemttout/release/addons/'
+          '.hemttout/release/optionals/*/addons'
         if-no-files-found: error
         compression-level: 0
