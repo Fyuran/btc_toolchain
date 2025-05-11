@@ -1,4 +1,4 @@
-Copyright (c) {YEAR} {AUTHOR}
+Copyright (c) 2025 Black Templars Clan Italia
 
 Brief summary of this Licence
 

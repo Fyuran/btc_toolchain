@@ -8,7 +8,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = 2.18;
-        requiredAddons[] = {"cba_main", "ace_medical_feedback", "ace_interaction"};
+        requiredAddons[] = {"cba_main"};
         author = "=BTC= Black Templars Clan";
         authors[] = {"=BTC=Fyuran"};
         url = "https://www.blacktemplars.it/";

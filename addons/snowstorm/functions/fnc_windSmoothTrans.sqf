@@ -1,0 +1,47 @@
+/* ----------------------------------------------------------------------------
+Function: btc_snowstorm_fnc_windSmoothTrans
+
+Description:
+    Handles wind vector interpolation between old position, setWind original syntax where you
+    define [x, y, forced] array does not allow you to transition smoothly, this function solves that with
+    a fixed update rate
+
+Parameters:
+    _duration: how long will the transition last
+    _plannedIntensity: how strong will the wind be
+Returns:
+
+Examples:
+    (begin example)
+	[] call r4efu2s3qw;
+    (end)
+
+Author:
+    Fyuran
+
+---------------------------------------------------------------------------- */
+#include "script_component.hpp"
+#define UPDATE_RATE 0.1
+params[
+    ["_duration", 10, [123]],
+    ["_plannedIntesity", 20, [123]]
+];
+
+private _angle = random 180;
+private _currentTime = 0;    
+private _currentWind = [wind#0, wind#1];
+private _plannedWindVector = [random[-1, 0, 1], -(sin _angle)] vectorMultiply _plannedIntesity;
+while{_currentTime < _duration} do {
+    private _linearTime = linearConversion[0, _duration, _currentTime, 0, 1, true];
+    private _intervalVector = [_currentWind, _plannedWindVector, _linearTime] call EFUNC(tools,vectorLerp);
+    setWind[_intervalVector#0, _intervalVector#1, true];
+    _currentTime = _currentTime + UPDATE_RATE;
+    #ifdef BTC_DEBUG
+    hint format[
+        "_currentTime: %1, _duration: %2,  _linearTime: %3,
+            _plannedWindVector: %4, intervalVec: %5", 
+        _currentTime, _duration, _linearTime, _plannedWindVector, _intervalVector
+    ];
+    #endif
+    sleep UPDATE_RATE;
+};
