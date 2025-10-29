@@ -96,6 +96,7 @@ GVAR(JIP_CSounds) = [] remoteExecCall [QFUNC(snowSounds_clients), [0, -2] select
 			false // when true, the dropColor is preserved and not affected by eye accommodation (optional, default is false)
 		] call BIS_fnc_setRain;
 		[_randMag] call FUNC(snowSounds);
+		0 setRain 1;
 		//[] remoteExecCall [QFUNC(snowDust), [0, -2] select isDedicated];
 
 		GVAR(windTrans) = [TRANS_DELAY, random [20, 30, 40]] spawn FUNC(windSmoothTrans);
