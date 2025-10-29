@@ -6,7 +6,7 @@ class CfgPatches {
         authors[] = {"=BTC=Fyuran"};
 		units[] = {};
 		url = "http://www.blacktemplars.it";
-		requiredVersion = 2.18;
+		requiredVersion = REQUIRED_VERSION;
 		weapons[] = {};
 		requiredAddons[] = {"btc_main"};
 		VERSION_CONFIG;
@@ -14,6 +14,11 @@ class CfgPatches {
 };
 
 class CfgSounds {
+	class GVAR(wind_transition) {
+		name = QGVAR(wind_transition);
+		sound[] = {QPATHTOF(sounds\wind_transition.ogg), 5,1};
+		titles[] = {};
+	};
 	class GVAR(indoor_h_windLoop) {
 		name = QGVAR(indoor_h_windLoop);
 		sound[] = {QPATHTOF(sounds\indoor_h_windLoop.ogg), 1,1};

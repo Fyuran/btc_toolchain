@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_snowstorm_fnc_snowSounds
 
@@ -17,7 +18,7 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
+
 params[
     ["_intensity", 0, [123]]
 ];
@@ -26,7 +27,7 @@ if(_intensity <= 0) exitWith {};
 GVAR(ambientSound) = -1;
 private _allPlayers = ([] call BIS_fnc_listPlayers) select {alive _x};
 
-if((count _allPlayers) > 0) then {
+if(_allPlayers isNotEqualTo []) then {
     if(random 1 > 0.98) then {
         private _randomPlayer = selectRandom _allPlayers;
         private _randomPosASL = [getPosASL _randomPlayer, 1] call CBA_fnc_randPos;

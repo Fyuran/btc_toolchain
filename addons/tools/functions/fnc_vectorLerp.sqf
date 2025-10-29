@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_tools_fnc_vectorLerp
 
@@ -19,7 +20,6 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
 
 params[
     ["_vec1", [0, 0], [[]], [2]],
@@ -36,4 +36,4 @@ if(_t > 1) then {
 
 private _lerpVec = _vec1 vectorAdd((_vec2 vectorDiff _vec1) vectorMultiply _t);
 
-_lerpVec 
+_lerpVec

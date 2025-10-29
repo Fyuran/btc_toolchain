@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_snowstorm_fnc_snowDust
 
@@ -17,7 +18,7 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
+
 if(!hasInterface) exitWith {};
 
 if(!isNil QGVAR(snowDust)) then { //do not allow more than one particle object

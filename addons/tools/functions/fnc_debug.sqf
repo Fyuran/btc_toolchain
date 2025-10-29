@@ -1,0 +1,51 @@
+#define NONE 0
+#define CHAT 1
+#define LOGS 2
+#define ERROR 4
+#define GLOBAL 8
+/* ----------------------------------------------------------------------------
+Function: btc_tools_fnc_debug
+
+Description:
+    Reports diagnostics information to rpt and user screen
+
+Parameters:
+    _message - [String]
+    _mode - [Array]
+    _folder - [String]
+
+Returns:
+
+Examples:
+    (begin example)
+        [format["Hello World"]] call btc_tools_fnc_debug;
+    (end)
+
+Author:
+    Fyuran
+
+---------------------------------------------------------------------------- */
+
+params [
+    ["_message", ["BTC Message debug"], [[""]]],
+    ["_mode", 0, [123]],
+    ["_folder", __FILE__, [""]]
+];
+
+private _startPosition = _folder find "fnc";
+if (_startPosition isEqualTo -1) then {
+    _startPosition = (_folder find worldName) + count worldName;
+};
+
+private _useChat = [_mode, CHAT] call BIS_fnc_bitflagsCheck;
+private _useLogs = [_mode, LOGS] call BIS_fnc_bitflagsCheck;
+private _isError = [_mode, ERROR] call BIS_fnc_bitflagsCheck;
+private _global = [_mode, GLOBAL] call BIS_fnc_bitflagsCheck;
+
+_folder = _folder select [_startPosition, (_folder find ".sqf") - _startPosition];
+if(!_isError) then {
+    [format _message, _folder, [_useChat, _useLogs, _global]] call CBA_fnc_debug;
+} else { //it's an error message
+    ["%2: %1", format _message, _folder] remoteExecCall ["BIS_fnc_error", 0];
+    [format _message, _folder, [_useChat, _useLogs, _global]] call CBA_fnc_debug;
+};

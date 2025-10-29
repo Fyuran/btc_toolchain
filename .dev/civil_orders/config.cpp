@@ -6,7 +6,7 @@ class CfgPatches {
         authors[] = {"=BTC=Fyuran"};
 		units[] = {};
 		url = "http://www.blacktemplars.it";
-		requiredVersion = 2.18;
+		requiredVersion = REQUIRED_VERSION;
 		weapons[] = {};
 		requiredAddons[] = {"btc_main"};
 	};

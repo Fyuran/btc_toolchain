@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 	Function: btc_WGC_init
 	
@@ -17,7 +18,6 @@
 	    Fyuran
 	
 ---------------------------------------------------------------------------- */
-#include "..\script_component.hpp"
 
 #define _WEAPONCFG (_cfg >> 'CfgWeapons' >> _class)
 #define _WEAPONDATA(ARG) (_WEAPONCFG##>>ARG)

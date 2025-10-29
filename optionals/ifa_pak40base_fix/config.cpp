@@ -9,7 +9,7 @@ class CfgPatches {
 		url = "https://www.blacktemplars.it/";
 		author = "=BTC= Black Templars Clan";
         authors[] = {"=BTC= Fyuran"};
-		requiredVersion = 2.18;
+		requiredVersion = REQUIRED_VERSION;
 		VERSION_CONFIG;
 	};
 }; 

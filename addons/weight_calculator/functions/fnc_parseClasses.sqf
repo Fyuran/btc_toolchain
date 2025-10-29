@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 	Function: btc_WGC_parseClasses
 	
@@ -17,7 +18,6 @@
 	    Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "..\script_component.hpp"
 
 params[
 	["_loadout", [], [[], ""]],
@@ -25,7 +25,7 @@ params[
 ];
 if(_loadout isEqualTo []) exitWith {};
 if(_loadout isEqualTo "") exitWith {};
-if(_loadout isEqualType "") exitWith {_x};
+if(_loadout isEqualType "") exitWith {};
 
 _loadout apply {
 	if(_x isEqualType []) then {

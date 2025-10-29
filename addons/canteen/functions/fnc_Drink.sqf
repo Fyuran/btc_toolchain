@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_canteen_fnc_Drink
 
@@ -18,9 +19,9 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
+
 if(!params[
-	["_item","",[""]]
+["_item","",[""]]
 ]) exitWith {ERROR_MSG_1(format["btc_canteen_fnc_Drink: bad params %1",_this])};
 
 private _targets = ACE_player nearEntities ["CAManBase", 20];
@@ -34,7 +35,7 @@ if (!isNull objectParent ACE_player) then {_stanceIndex = 0};
 private _consumeAnim = getArray (_config) param [_stanceIndex, "", [""]];
 [ACE_player, _consumeAnim, 1] call ace_common_fnc_doAnimation;
 
-[10,	_this,
+[10, _this,
 {
 	_args params ["_item"];
 

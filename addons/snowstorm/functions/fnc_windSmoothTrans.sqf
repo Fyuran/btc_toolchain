@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+#define UPDATE_RATE 0.1
 /* ----------------------------------------------------------------------------
 Function: btc_snowstorm_fnc_windSmoothTrans
 
@@ -20,17 +22,15 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
-#define UPDATE_RATE 0.1
+
 params[
     ["_duration", 10, [123]],
     ["_plannedIntesity", 20, [123]]
 ];
 
-private _angle = random 180;
 private _currentTime = 0;    
 private _currentWind = [wind#0, wind#1];
-private _plannedWindVector = [random[-1, 0, 1], -(sin _angle)] vectorMultiply _plannedIntesity;
+private _plannedWindVector = [0, random[-0.5, -0.8, -1]] vectorMultiply (random _plannedIntesity);
 while{_currentTime < _duration} do {
     private _linearTime = linearConversion[0, _duration, _currentTime, 0, 1, true];
     private _intervalVector = [_currentWind, _plannedWindVector, _linearTime] call EFUNC(tools,vectorLerp);

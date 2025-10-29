@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_snowstorm_fnc_terminate
 
@@ -17,7 +18,6 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
 
 if(isServer) then {
     if(!isNil QGVAR(JIP_CSounds)) then { //client sounds handler

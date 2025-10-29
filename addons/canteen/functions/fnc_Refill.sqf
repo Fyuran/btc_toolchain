@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_canteen_fnc_Refill
 
@@ -25,7 +26,7 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
+
 if(!params[
 	["_item","",[""]]
 ]) exitWith {ERROR_MSG_1(format["btc_canteen_fnc_Refill: bad params %1",_this])};

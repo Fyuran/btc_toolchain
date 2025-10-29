@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_snowstorm_fnc_snowSounds_clients
 
@@ -17,7 +18,6 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
 
 if(!hasInterface) exitWith {};
 if(!isNil QGVAR(indoor_handle)) then {
@@ -55,6 +55,7 @@ GVAR(indoor_handle) = [{
         stopSound(GVAR(windSoundID));
         GVAR(isIndoors) = true;
 
+        playSoundUI [QGVAR(wind_transition), 1, 1, true, 0];
         GVAR(sound_loop_handle) = [{
             GVAR(windSoundID) = playSoundUI [selectRandom GVAR(indoor_windSounds), 1, 1, true, 0];
         }, 59, []] call CBA_fnc_addPerFrameHandler;
@@ -65,6 +66,7 @@ GVAR(indoor_handle) = [{
             stopSound(GVAR(windSoundID));
             GVAR(isIndoors) = false;
 
+            playSoundUI [QGVAR(wind_transition), 1, 1, true, 0];
             GVAR(sound_loop_handle) = [{
                 GVAR(windSoundID) = playSoundUI [selectRandom GVAR(windSounds), 1, 1, true, 0];
             }, 59, []] call CBA_fnc_addPerFrameHandler;

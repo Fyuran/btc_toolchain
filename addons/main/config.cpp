@@ -7,7 +7,7 @@ class CfgPatches {
         name = "=BTC= Toolchain main";
         units[] = {};
         weapons[] = {};
-        requiredVersion = 2.18;
+        requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main"};
         author = "=BTC= Black Templars Clan";
         authors[] = {"=BTC=Fyuran"};

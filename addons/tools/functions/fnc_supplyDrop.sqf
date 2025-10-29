@@ -1,4 +1,4 @@
-
+#include "script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: btc_tools_fnc_supplyDrop
 
@@ -43,7 +43,6 @@ Author:
     Fyuran
 
 ---------------------------------------------------------------------------- */
-#include "script_component.hpp"
 
 params[
 	["_veh", objNull, [objNull]],
@@ -167,4 +166,3 @@ if (surfaceIsWater _posATL) exitWith {
 hint "Spawning supplies...";
 diag_log format["%1 spawning supplies", __FILE__];
 #endif
-
