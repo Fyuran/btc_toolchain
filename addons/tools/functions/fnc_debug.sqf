@@ -12,7 +12,7 @@ Description:
 Parameters:
     _message - [String]
     _mode - [Array]
-    _folder - [String]
+    _file - [String]
 
 Returns:
 
@@ -28,24 +28,17 @@ Author:
 
 params [
     ["_message", ["BTC Message debug"], [[""]]],
-    ["_mode", 0, [123]],
-    ["_folder", __FILE__, [""]]
+    ["_mode", 0, [123]]
 ];
-
-private _startPosition = _folder find "fnc";
-if (_startPosition isEqualTo -1) then {
-    _startPosition = (_folder find worldName) + count worldName;
-};
 
 private _useChat = [_mode, CHAT] call BIS_fnc_bitflagsCheck;
 private _useLogs = [_mode, LOGS] call BIS_fnc_bitflagsCheck;
 private _isError = [_mode, ERROR] call BIS_fnc_bitflagsCheck;
 private _global = [_mode, GLOBAL] call BIS_fnc_bitflagsCheck;
 
-_folder = _folder select [_startPosition, (_folder find ".sqf") - _startPosition];
 if(!_isError) then {
-    [format _message, _folder, [_useChat, _useLogs, _global]] call CBA_fnc_debug;
+    [format _message, "btc_debug", [_useChat, _useLogs, _global]] call CBA_fnc_debug;
 } else { //it's an error message
-    ["%2: %1", format _message, _folder] remoteExecCall ["BIS_fnc_error", 0];
-    [format _message, _folder, [_useChat, _useLogs, _global]] call CBA_fnc_debug;
+    ["%1", format _message] remoteExecCall ["BIS_fnc_error", 0];
+    [format _message, "btc_debug", [_useChat, _useLogs, _global]] call CBA_fnc_debug;
 };

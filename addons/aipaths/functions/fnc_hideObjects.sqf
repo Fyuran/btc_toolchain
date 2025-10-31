@@ -37,6 +37,6 @@ GVAR(objects) apply {
     } forEach _textures;
 };
 
-#ifdef DEBUG_MODE_FULL
+#ifdef BTC_DEBUG
     [format ["%1 objects are being hidden", count GVAR(objects)]] remoteExecCall ["systemChat", remoteExecutedOwner];
 #endif

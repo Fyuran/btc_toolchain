@@ -27,7 +27,7 @@ params[
 if(!isServer) exitWith {
     _this remoteExecCall [QFUNC(hideObject), 2];
 };
-#ifdef DEBUG_MODE_FULL
+#ifdef BTC_DEBUG
     [format ["%1 is being hidden", _object]] remoteExecCall ["systemChat", 0];
 #endif
 
