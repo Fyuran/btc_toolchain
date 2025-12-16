@@ -1,4 +1,3 @@
-#define NONE 0
 #define CHAT 1
 #define LOGS 2
 #define ERROR 4
@@ -18,7 +17,7 @@ Returns:
 
 Examples:
     (begin example)
-        [format["Hello World"]] call btc_tools_fnc_debug;
+        [["Hello World"], 1] call btc_tools_fnc_debug;
     (end)
 
 Author:
@@ -30,6 +29,9 @@ params [
     ["_message", ["BTC Message debug"], [[""]]],
     ["_mode", 0, [123]]
 ];
+if (mode <= 0) exitWith {
+    [["invalid mode passed to btc_tools_fnc_debug: %1", _mode], 6] call btc_tools_fnc_debug;
+};
 
 private _useChat = [_mode, CHAT] call BIS_fnc_bitflagsCheck;
 private _useLogs = [_mode, LOGS] call BIS_fnc_bitflagsCheck;

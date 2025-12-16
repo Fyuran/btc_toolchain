@@ -35,15 +35,12 @@ class CfgPatches {
 	};
 }; 
 
-class CfgMissions
-{
-	class Missions
-	{
-		class GVAR(testingGrounds) // class name MUST match the name in the 'directory' path
-		{
+class CfgMissions {
+	class Missions {
+		class GVAR(testingGrounds) { // class name MUST match the name in the 'directory' path
             overviewPicture = "a3\missions_f_curator\data\img\showcase_curator_overview_ca.paa";
 			briefingName = "=BTC= AIPaths Testing Grounds";
-			directory = "z\btc\addons\AIPaths\missions\btc_AIPaths_testingGrounds.VR"; // <--- match
+			directory = "z\btc\addons\aipaths\missions\btc_AIPaths_testingGrounds.VR"; // <--- match
             overviewText = "Overview the AIPaths offered by =Black Templars Clan=";
 		};
 	};

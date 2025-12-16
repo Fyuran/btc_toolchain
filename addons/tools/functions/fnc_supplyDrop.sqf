@@ -3,7 +3,7 @@
 Function: btc_tools_fnc_supplyDrop
 
 Description:
-    Apply chemical damage.
+    Comands an air unit to drop certain items on location, items will be attached to a parachute.
 
 Parameters:
     _veh - Air unit to which spawn supplies from. [Object]
@@ -65,7 +65,7 @@ if (surfaceIsWater _posATL) exitWith {
 [_veh, _paradropClasses, _inventoryClasses] spawn {
 	params[
 		["_veh", objNull, [objNull]],
-		["_paradropClasses", objNull, [[""]]],
+		["_paradropClasses", [], [[""]]],
 		["_inventoryClasses", [], [[]]]
 	];
 	
