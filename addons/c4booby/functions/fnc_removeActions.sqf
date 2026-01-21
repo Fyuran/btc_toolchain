@@ -21,10 +21,14 @@ Author:
 
 if(!params[
 	["_defuser",objNull,[objNull]]
-]) exitWith{ERROR_MSG_1("btc_c4booby_fnc_removeActions: bad params: %1",_this)};
+]) exitWith{
+    [["%1: bad params: %2", __FILE_SHORT__, _this], 6, "c4booby"] call EFUNC(tools,debug);
+};
 
 _actionIDS = _defuser getVariable ["c4booby_actionids",[]];
-if(_actionIDS isEqualTo []) exitWith {ERROR_MSG_1(format["btc_c4booby_fnc_removeActions: bad actions ids: %1",_actionIDS])};
+if(_actionIDS isEqualTo []) exitWith {
+    [["%1: bad action ids: %2", __FILE_SHORT__, _actionIDS], 6, "c4booby"] call EFUNC(tools,debug);
+};
 _actionIDS apply {[_defuser,0,_x] call ace_interact_menu_fnc_removeActionFromObject};
 
 true

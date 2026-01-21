@@ -2,13 +2,13 @@
 class CfgPatches {
 	class ADDON {
 		name = "=BTC= Deployable Antennas";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
 		units[] = {QGVAR(DeployableAntenna_Item)};
 		url = "http://www.blacktemplars.it";
 		requiredVersion = REQUIRED_VERSION;
 		weapons[] = {QGVAR(DeployableAntenna)};
-		requiredAddons[] = {"btc_main"};
+		requiredAddons[] = {"btc_main", "ace_main"};
 		VERSION_CONFIG;
 	};
 };
@@ -110,11 +110,5 @@ class Extended_PreStart_EventHandlers {
 class Extended_PreInit_EventHandlers {
     class ADDON {
         init = QUOTE(call COMPILE_FILE(XEH_preInit));
-    };
-};
-
-class Extended_PostInit_EventHandlers {
-    class ADDON {
-        init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };

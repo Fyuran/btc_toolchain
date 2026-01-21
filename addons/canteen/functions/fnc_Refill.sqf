@@ -29,7 +29,9 @@ Author:
 
 if(!params[
 	["_item","",[""]]
-]) exitWith {ERROR_MSG_1(format["btc_canteen_fnc_Refill: bad params %1",_this])};
+]) exitWith {
+	[["%1: bad params: %2", __FILE_SHORT__, _this], 6, "canteen"] call EFUNC(tools,debug);
+};
 
 
 [5,	_this,

@@ -1,5 +1,5 @@
 // Register a simple keypress to an action
-#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+#include "\a3\ui_f\hpp\definedikcodes.inc"
 
 if (!isDedicated && hasInterface) then {
     [{!isNull player}, {

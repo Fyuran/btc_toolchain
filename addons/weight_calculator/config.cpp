@@ -2,8 +2,8 @@
 class CfgPatches {
 	class ADDON {
 		name = "=BTC= Gear Weight Calculator";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
 		units[] = {};
 		url = "http://www.blacktemplars.it";
 		requiredVersion = REQUIRED_VERSION;
@@ -47,11 +47,5 @@ class Extended_PreStart_EventHandlers {
 class Extended_PreInit_EventHandlers {
     class ADDON {
         init = QUOTE(call COMPILE_FILE(XEH_preInit));
-    };
-};
-
-class Extended_PostInit_EventHandlers {
-    class ADDON {
-        init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };

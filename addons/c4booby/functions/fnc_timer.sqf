@@ -25,7 +25,9 @@ params[
     ["_end_time",60,[0]],
 	["_max_colors",1,[0]]
 ];
-if(isNull _obj) exitWith {ERROR_MSG_1("btc_c4booby_fnc_timer: bad params: %1",_this)};
+if(isNull _obj) exitWith {
+    [["%1: bad params: %2", __FILE_SHORT__, _this], 6, "c4booby"] call EFUNC(tools,debug);
+};
 
 private _start_time = CBA_missionTime;
 
@@ -57,6 +59,9 @@ private _handle = [{
         };
     } else {
         if(_sound_interval isEqualTo 0) then {
+            #ifdef BTC_DEBUG_C4BOOBY
+            [["%1: c4booby %2 at %3", __FILE_SHORT__, typeOf _obj, getPosATL _obj], 3, "c4booby"] call EFUNC(tools,debug);
+            #endif
             ["ace_medical_feedback_forceSay3D", [_obj, QGVAR(timerEnd), 50], _targets] call CBA_fnc_targetEvent;
             _obj setVariable ["c4booby_sound_interval",-1];
         };

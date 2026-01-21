@@ -73,7 +73,7 @@ GVAR(indoor_handle) = [{
         };
     };
 
-    #ifdef BTC_DEBUG
+    #ifdef BTC_DEBUG_SNOWSTORM
     private _predicate = {
         private _pos1 = getPosWorldVisual player;
         private _pos2 = _pos1 vectorAdd [0, 0, 10];

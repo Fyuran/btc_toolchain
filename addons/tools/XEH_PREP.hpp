@@ -3,3 +3,4 @@ PREP(supplyDrop);
 PREP(vectorLerp);
 PREP(debug);
 PREP(enemyWaves);
+CBA_fnc_debug2 = compileScript [QPATHTOF(functions\fnc_cba_debug2.sqf)];

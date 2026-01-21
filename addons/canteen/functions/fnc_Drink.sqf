@@ -22,7 +22,9 @@ Author:
 
 if(!params[
 ["_item","",[""]]
-]) exitWith {ERROR_MSG_1(format["btc_canteen_fnc_Drink: bad params %1",_this])};
+]) exitWith {    
+	[["%1: bad params: %2", __FILE_SHORT__, _this], 6, "canteen"] call EFUNC(tools,debug);
+};
 
 private _targets = ACE_player nearEntities ["CAManBase", 20];
 ["ace_medical_feedback_forceSay3D", [ACE_player, QGVAR(Drink_sound), 20], _targets] call CBA_fnc_targetEvent;
@@ -39,7 +41,9 @@ private _consumeAnim = getArray (_config) param [_stanceIndex, "", [""]];
 {
 	_args params ["_item"];
 
-	if(isNil "ace_advanced_fatigue_anreserve") exitWith {ERROR_MSG(format["btc_canteen_fnc_Drink: non existing ace_advanced_fatigue_anreserve check if ACE is loaded"])};
+	if(isNil "ace_advanced_fatigue_anreserve") exitWith {
+    	[["%1: non existing ace_advanced_fatigue_anreserve, check if ACE is loaded", __FILE_SHORT__], 6, "canteen"] call EFUNC(tools,debug);
+	};
 	ace_advanced_fatigue_anreserve = 2300; //GVAR of ace_advanced_fatigue
 	[format["You took a sip of %1.", getText(configFile >> "CfgWeapons" >> _item >> "DisplayName")], 2.5, ACE_player] call ace_common_fnc_displayTextStructured;
 	ACE_player removeItem _item;

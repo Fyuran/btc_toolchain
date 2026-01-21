@@ -2,8 +2,8 @@
 class CfgPatches {
 	class ADDON {
 		name = "=BTC= Snowstorm";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
 		units[] = {};
 		url = "http://www.blacktemplars.it";
 		requiredVersion = REQUIRED_VERSION;

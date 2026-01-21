@@ -3,4 +3,7 @@
 hemtt
 hemtt.exe
 *.biprivatekey
+btc.biprivatekey
+.hemttprivatekey
+btc.txt
 *.fbx

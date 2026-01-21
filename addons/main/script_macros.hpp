@@ -1,5 +1,7 @@
 #include "script_version.hpp"
 
+#define MAIN_AUTHOR "Black Templars Clan"
+#define AUTHORS "=BTC= Fyuran"
 #define MAINPREFIX z
 #define PREFIX btc
 #include "\x\cba\addons\main\script_macros_common.hpp"
@@ -50,3 +52,15 @@
 
 #define ACEPATHTOF(component,path) \z\ace\addons\component\path
 #define QACEPATHTOF(component,path) QUOTE(ACEPATHTOF(component,path))
+
+#ifdef BTC_DEBUG_FULL
+    #define BTC_DEBUG_AIPATHS
+    #define BTC_DEBUG_C4BOOBY
+    #define BTC_DEBUG_CANTEEN
+    #define BTC_DEBUG_DEPLOYABLE_ANTENNA
+    #define BTC_DEBUG_DIALOG
+    #define BTC_DEBUG_INSIGNIA
+    #define BTC_DEBUG_SNOWSTORM
+    #define BTC_DEBUG_TOOLS
+    #define BTC_DEBUG_WEIGHT_CALCULATOR
+#endif

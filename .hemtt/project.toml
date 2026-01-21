@@ -17,9 +17,9 @@ include = [
 
 [version]
 major = 1
-minor = 1
-patch = 9
-build = 3 # Optional
+minor = 2
+patch = 0
+build = 0 # Optional
 git_hash = 0
 
 [hemtt.release]

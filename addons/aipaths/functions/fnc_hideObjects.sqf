@@ -26,7 +26,7 @@ if(!isServer) exitWith {
 };
 GVAR(objects) = missionNamespace getVariable [QGVAR(objects), []];
 if(GVAR(objects) isEqualTo []) exitWith {
-    ["no btc_AIPaths objects found"] remoteExecCall ["systemChat", remoteExecutedOwner];
+    [["%1: no btc_AIPaths objects found", __FILE_SHORT__], 6, "aipaths"] call EFUNC(tools,debug);
 };
 
 GVAR(objects) apply {
@@ -37,6 +37,6 @@ GVAR(objects) apply {
     } forEach _textures;
 };
 
-#ifdef BTC_DEBUG
-    [format ["%1 objects are being hidden", count GVAR(objects)]] remoteExecCall ["systemChat", remoteExecutedOwner];
+#ifdef BTC_DEBUG_AIPATHS
+[["%1: %1 objects are being hidden", __FILE_SHORT__, count GVAR(objects)], 3, "aipaths"] call EFUNC(tools,debug);
 #endif

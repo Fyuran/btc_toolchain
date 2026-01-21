@@ -2,16 +2,34 @@
 class CfgPatches {
 	class ADDON {
 		name = "=BTC= C4 Booby trap";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
-		units[] = {QGVAR(Land_MetalBarrel_F),QGVAR(CargoNet_01_barrels_F),
-		QGVAR(CargoNet_01_box_F),QGVAR(B_CargoNet_01_ammo_F),QGVAR(I_CargoNet_01_ammo_F),
-		QGVAR(O_CargoNet_01_ammo_F),QGVAR(I_E_CargoNet_01_ammo_F),QGVAR(C_IDAP_CargoNet_01_supplies_F)};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
+		units[] = {
+			QGVAR(Land_MetalBarrel_F),
+			QGVAR(CargoNet_01_barrels_F),
+			QGVAR(CargoNet_01_box_F),
+			QGVAR(B_CargoNet_01_ammo_F),
+			QGVAR(I_CargoNet_01_ammo_F),
+			QGVAR(O_CargoNet_01_ammo_F),
+			QGVAR(I_E_CargoNet_01_ammo_F),
+			QGVAR(C_IDAP_CargoNet_01_supplies_F)
+		};
 		url = "http://www.blacktemplars.altervista.org";
 		requiredVersion = REQUIRED_VERSION;
 		weapons[] = {};
-		requiredAddons[] = {"btc_main"};
+		requiredAddons[] = {"btc_main", "ace_main"};
 		VERSION_CONFIG;
+	};
+};
+
+class CfgMissions {
+	class Missions {
+		class GVAR(testingGrounds) { // class name MUST match the name in the 'directory' path
+            overviewPicture = "a3\missions_f_curator\data\img\showcase_curator_overview_ca.paa";
+			briefingName = "=BTC= C4Booby Testing Grounds";
+			directory = "z\btc\addons\c4booby\missions\btc_c4booby_testingGrounds.VR"; // <--- match
+            overviewText = "Overview the C4 Booby Traps by =Black Templars Clan=";
+		};
 	};
 };
 
@@ -104,10 +122,10 @@ class CfgVehicles {
 		author = "=BTC=Fyuran";
 		displayName = "Cargo Net [C4-AAF]";
 		class Attributes {
-			class GVAR(I_CargoNet_01_ammo_F) {
+			class GVAR(I_CargoNet_01_ammo_F_EndTime) {
 				displayName = "Edit timer"; 
 				tooltip = "Change timeout before detonation";
-				property = QGVAR(I_CargoNet_01_ammo_F);
+				property = QGVAR(I_CargoNet_01_ammo_F_EndTime);
 				control = "Edit";
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
@@ -122,10 +140,10 @@ class CfgVehicles {
 		author = "=BTC=Fyuran";
 		displayName = "Cargo Net [C4-CSAT]";
 		class Attributes {
-			class GVAR(O_CargoNet_01_ammo_F) {
+			class GVAR(O_CargoNet_01_ammo_F_EndTime) {
 				displayName = "Edit timer"; 
 				tooltip = "Change timeout before detonation";
-				property = QGVAR(O_CargoNet_01_ammo_F);
+				property = QGVAR(O_CargoNet_01_ammo_F_EndTime);
 				control = "Edit";
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
@@ -140,10 +158,10 @@ class CfgVehicles {
 		author = "=BTC=Fyuran";
 		displayName = "Cargo Net [C4-LDF]";
 		class Attributes {
-			class GVAR(I_E_CargoNet_01_ammo_F) {
+			class GVAR(I_E_CargoNet_01_ammo_F_EndTime) {
 				displayName = "Edit timer"; 
 				tooltip = "Change timeout before detonation";
-				property = QGVAR(I_E_CargoNet_01_ammo_F);
+				property = QGVAR(I_E_CargoNet_01_ammo_F_EndTime);
 				control = "Edit";
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
@@ -158,10 +176,10 @@ class CfgVehicles {
 		author = "=BTC=Fyuran";
 		displayName = "Cargo Net [C4-IDAP]";
 		class Attributes {
-			class GVAR(C_IDAP_CargoNet_01_supplies_F) {
+			class GVAR(C_IDAP_CargoNet_01_supplies_F_EndTime) {
 				displayName = "Edit timer"; 
 				tooltip = "Change timeout before detonation";
-				property = QGVAR(C_IDAP_CargoNet_01_supplies_F);
+				property = QGVAR(C_IDAP_CargoNet_01_supplies_F_EndTime);
 				control = "Edit";
 				expression = "_this setVariable ['c4booby_endtime',_value];";
 				defaultValue = "60";
@@ -284,5 +302,11 @@ class Extended_Deleted_EventHandlers {
 class Extended_PreStart_EventHandlers {
     class ADDON {
         init = QUOTE(call COMPILE_FILE(XEH_preStart));
+    };
+};
+
+class Extended_PreInit_EventHandlers {
+    class ADDON {
+        init = QUOTE(call COMPILE_FILE(XEH_preInit));
     };
 };

@@ -17,6 +17,7 @@ class CfgPatches {
 
             QGVAR(2x2_45),
             QGVAR(2x4_45),
+            QGVAR(4x2_45),
             QGVAR(4x4_45),
             QGVAR(4x8_45),
 
@@ -28,8 +29,8 @@ class CfgPatches {
 		weapons[] = {};
 		requiredAddons[] = {"btc_main"};
 		url = "https://www.blacktemplars.it/";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC= Fyuran"};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
 		requiredVersion = REQUIRED_VERSION;
         VERSION_CONFIG;
 	};

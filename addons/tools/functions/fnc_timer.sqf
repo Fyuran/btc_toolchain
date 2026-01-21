@@ -30,12 +30,12 @@ params[
 	["_guiPosSize", [0.275,0.96,0.425,0.06], [[]], 4]
 ];
 
-if (!isNil"BTC_TOOLS_UI_TIMER_HANDLE") then {
-	terminate BTC_TOOLS_UI_TIMER_HANDLE;
+if (!isNil "btc_tools_ui_timer_handle") then {
+	terminate btc_tools_ui_timer_handle;
 	ctrlDelete((findDisplay 46) displayCtrl 6001); 
 };
    
-BTC_TOOLS_UI_TIMER_HANDLE = [_duration, _clock, _predicate, _guiPosSize] spawn {
+btc_tools_ui_timer_handle = [_duration, _clock, _predicate, _guiPosSize] spawn {
 	params[
 		"_duration",
 		"_clock",
@@ -43,7 +43,7 @@ BTC_TOOLS_UI_TIMER_HANDLE = [_duration, _clock, _predicate, _guiPosSize] spawn {
 		"_guiPosSize"
 	];
 	if (_clock != 24 && _clock != 12) exitWith {
-		[["invalid clock time: %1", _clock], 6] call btc_tools_fnc_debug;
+		[["%1: invalid clock time: %2", __FILE_SHORT__, _clock], 6, "tools"] call FUNC(debug);
 	};
 	private _display = findDisplay 46;
 	private _textCtrl = _display ctrlCreate ["RscStructuredText", 6001];

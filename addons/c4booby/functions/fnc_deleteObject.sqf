@@ -23,7 +23,9 @@ Author:
 params[
 	["_obj",objNull,[objNull]]
 ];
-if(isNull _obj) exitWith {ERROR_MSG_1("btc_c4booby_fnc_deleteObject: bad params: %1",_this)};
+if(isNull _obj) exitWith {
+    [["%1: bad params: %2", __FILE_SHORT__, _this], 6, "c4booby"] call EFUNC(tools,debug);
+};
 
 private _handle = _obj getVariable ["c4booby_timer_handle", -1];
 if(_handle != -1) then {

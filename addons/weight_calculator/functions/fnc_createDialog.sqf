@@ -28,7 +28,6 @@
 #define _CONTAINERCFG (_cfg >> 'CfgVehicles' >> _class)
 #define _CONTAINERDATA(ARG) (_CONTAINERCFG##>>ARG)
 
-//#include "\a3\ui_f\hpp\defineDIKCodes.inc"
 disableSerialization;
 
 private _dialog = createDialog["btc_WGC"];

@@ -3,8 +3,8 @@
 class CfgPatches {
 	class ADDON {
 		name = "=BTC= Wearable Sleeve Insignia";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
 		units[] = {};
 		url = "https://www.blacktemplars.it/";
 		requiredVersion = REQUIRED_VERSION;

@@ -26,12 +26,18 @@ params[
 	["_end_time", 60, [0]],
 	["_max_colors", 1, [0]]
 ];
-if(isNull _obj) exitWith {ERROR_MSG_1("btc_c4booby_fnc_objectInit: bad params: %1",_this)};
+if(isNull _obj) exitWith {
+    [["%1: bad params: %2", __FILE_SHORT__, _this], 6, "c4booby"] call EFUNC(tools,debug);
+};
 
 #define __NORTH 0
 #define __SOUTH 1
 #define __EAST 2
 #define __WEST 3
+
+#ifdef BTC_DEBUG_C4BOOBY
+[["%1: creating c4 booby %2 at %3", __FILE_SHORT__, typeOf _obj, getPosATL _obj], 3, "c4booby"] call EFUNC(tools,debug);
+#endif
 
 private _defuser_VectorDirAndUp = [
 	[[0, 1, 0],[0, 0, 1]], //N
@@ -71,7 +77,9 @@ private _deco_pos = call {
 	};
 	[]
 };
-if (_deco_pos isEqualTo []) exitWith {ERROR_MSG_1("btc_c4booby_fnc_objectInit: bad _deco_pos: %1",_deco_pos)};
+if (_deco_pos isEqualTo []) exitWith {
+    [["%1: bad _deco_pos: %2", __FILE_SHORT__, _deco_pos], 6, "c4booby"] call EFUNC(tools,debug);
+};
 
 private _exp_pos = _deco_pos select 0;
 for "_i" from 0 to (count _exp_pos - 1) do {

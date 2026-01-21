@@ -41,7 +41,7 @@ if(!isNil QGVAR(handle)) then { //make sure the previous handler is removed
 
 //ace will overwrite any kind of weather settings passed
 if(ACEGVAR(weather,windSimulation)) exitWith {
-	[["snowfall could not be executed while ace is managing wind simulation"], 6] call EFUNC(tools,debug);
+	[["%1: snowfall could not be executed while ace is managing wind simulation", __FILE_SHORT__], 6, "snowstorm"] call EFUNC(tools,debug);
 };
 
 0 setRainbow 0;

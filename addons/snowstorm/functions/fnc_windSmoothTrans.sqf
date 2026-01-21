@@ -36,12 +36,10 @@ while{_currentTime < _duration} do {
     private _intervalVector = [_currentWind, _plannedWindVector, _linearTime] call EFUNC(tools,vectorLerp);
     setWind[_intervalVector#0, _intervalVector#1, true];
     _currentTime = _currentTime + UPDATE_RATE;
-    #ifdef BTC_DEBUG
-    hint format[
-        "_currentTime: %1, _duration: %2,  _linearTime: %3,
-            _plannedWindVector: %4, intervalVec: %5", 
-        _currentTime, _duration, _linearTime, _plannedWindVector, _intervalVector
-    ];
+    #ifdef BTC_DEBUG_SNOWSTORM
+    [["%1: _currentTime: %2, _duration: %3,  _linearTime: %4,
+            _plannedWindVector: %5, intervalVec: %6", __FILE_SHORT__, 
+        _currentTime, _duration, _linearTime, _plannedWindVector, _intervalVector], 3, "snowstorm"] call EFUNC(tools,debug);
     #endif
     sleep UPDATE_RATE;
 };

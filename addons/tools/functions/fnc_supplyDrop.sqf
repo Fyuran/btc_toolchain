@@ -51,15 +51,11 @@ params[
 ];
 
 if (isNull _veh) exitWith {
-	#ifdef BTC_DEBUG
-	["passed a null _veh object"] call BIS_fnc_error;
-	#endif
+	[["%1: _obj is null", __FILE_SHORT__], 6, "tools"] call FUNC(debug);
 };
 private _posATL = getPosATL _veh;		
 if (surfaceIsWater _posATL) exitWith {
-	#ifdef BTC_DEBUG
-	["attempting to supply over water: %1", _posATL] call BIS_fnc_error;
-	#endif 
+	[["%1: attempting to supply over water %2", __FILE_SHORT__, _posATL], 6, "tools"] call FUNC(debug);
 };
 
 [_veh, _paradropClasses, _inventoryClasses] spawn {
@@ -72,17 +68,13 @@ if (surfaceIsWater _posATL) exitWith {
 	{
 		 //if object is a class create a vehicle else null check
 		if(!isClass (configFile >> "CfgVehicles" >> _x)) then {
-			#ifdef BTC_DEBUG
-			["invalid class: %1", _x] call BIS_fnc_error; 
-			#endif
+			[["%1: invalid class %2", __FILE_SHORT__, _x], 6, "tools"] call FUNC(debug);
 		   continue; 
 		};
 		private _vehPosATL = getPosATL _veh;
 		
 		if((_vehPosATL#2) < 15) then {
-			#ifdef BTC_DEBUG
-			["flight path too low, must be above 15m, currently: %1", _vehPosATL#2] call BIS_fnc_error; 
-			#endif
+			[["%1: flight path too low, must be above 15m, currently: %2", __FILE_SHORT__, _vehPosATL#2], 6, "tools"] call FUNC(debug);
 			continue;
 		};
 		
@@ -120,16 +112,12 @@ if (surfaceIsWater _posATL) exitWith {
 					{(!isClass (configFile >> "CfgAmmo" >> _class))} &&
 					{(!isClass (configFile >> "CfgMagazines" >> _class))}
 				) then {
-					#ifdef BTC_DEBUG
-					["invalid class: %1", _class] call BIS_fnc_error; 
-					#endif
+					[["%1: invalid class %2", __FILE_SHORT__, _class], 6, "tools"] call FUNC(debug);
 					continue;
 				};
 				
 				if !([_supply, _class] call CBA_fnc_canAddItem) then {
-					#ifdef BTC_DEBUG
-					["no inventory room for: %1", _class] call BIS_fnc_error; 
-					#endif
+					[["%1: no inventory room for: %2", __FILE_SHORT__, _class], 6, "tools"] call FUNC(debug);
 					continue;
 				};
 				
@@ -162,7 +150,6 @@ if (surfaceIsWater _posATL) exitWith {
 	} forEach _paradropClasses;
 };
 
-#ifdef BTC_DEBUG
-hint "Spawning supplies...";
-diag_log format["%1 spawning supplies", __FILE__];
+#ifdef BTC_DEBUG_TOOLS
+[["%1: Spawning supplies...", __FILE_SHORT__, _class], 3, "tools"] call FUNC(debug);
 #endif

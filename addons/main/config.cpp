@@ -9,8 +9,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main"};
-        author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
+        author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
         url = "https://www.blacktemplars.it/";
         VERSION_CONFIG;
     };

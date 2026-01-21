@@ -40,13 +40,13 @@
 class CfgPatches {
 	class ADDON {
 		name = "=BTC= Water Bottle & Canteen stamina regain";
-		author = "=BTC= Black Templars Clan";
-        authors[] = {"=BTC=Fyuran"};
+		author = MAIN_AUTHOR;
+        authors[] = {AUTHORS};
 		units[] = {"ACE_Canteen_Nearly_Empty_Item","ACE_Canteen_Nearly_Full_Item"};
 		url = "http://www.blacktemplars.it";
 		requiredVersion = REQUIRED_VERSION;
 		weapons[] = {"ACE_Canteen_Nearly_Empty","ACE_Canteen_Nearly_Full"};
-		requiredAddons[] = {"btc_main"};
+		requiredAddons[] = {"btc_main", "ace_main"};
 		VERSION_CONFIG;
 	};
 };

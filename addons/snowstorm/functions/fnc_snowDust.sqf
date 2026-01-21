@@ -33,7 +33,7 @@ private _radius = [15, 40] select (!isNull objectParent player);
 
 private _pos = (player modelToWorldWorld [0,0,0]) vectorAdd (wind vectorMultiply -1); //the stronger the wind the farther from the player
 
-#ifdef BTC_DEBUG
+#ifdef BTC_DEBUG_SNOWSTORM
 Points1 pushBack [_pos#0, _pos#1, 1];
 #endif
 

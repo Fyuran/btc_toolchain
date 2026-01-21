@@ -22,7 +22,9 @@ Author:
 if(!params [
 	["_defuser",objNull,[objNull]],
 	["_obj",objNull,[objNull]]
-]) exitWith {ERROR_MSG_1("btc_c4booby_fnc_objectInit: bad params: %1",_this)};
+]) exitWith {
+    [["%1: bad params: %2", __FILE_SHORT__, _this], 6, "c4booby"] call EFUNC(tools,debug);
+};
 
 private _color_actions = [];
 private _action_ids = [];
