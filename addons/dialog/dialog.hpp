@@ -1,15 +1,10 @@
-/* #Vyqavo
-$[
-	1.063,
-	["btc_dialog_box",[["(safeZoneX)","(safeZoneY + safeZoneH - (((safeZoneW / safeZoneH) min 1.2) / 1.2))","((safeZoneW / safeZoneH) min 1.2)","(((safeZoneW / safeZoneH) min 1.2) / 1.2)"],"(((safeZoneW / safeZoneH) min 1.2) / 40)","((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25)","GUI_GRID"],0,0,0],
-	[1200,"",[1,"#(argb,8,8,3)color(1,1,1,1)",["0.340313 * safezoneW + safezoneX","0.032 * safezoneH + safezoneY","0.0433125 * safezoneW","0.077 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1801,"",[1,"INCOMING TRASMISSION",["0.340313 * safezoneW + safezoneX","0.01 * safezoneH + safezoneY","0.303187 * safezoneW","0.022 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1000,"",[1,"INSERT TEXT HERE",["0.383625 * safezoneW + safezoneX","0.032 * safezoneH + safezoneY","0.259875 * safezoneW","0.077 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]]
-]
-*/
-#include "\a3\ui_f\hpp\definecommoncolors.inc"
-#include "\a3\ui_f\hpp\defineResincl.inc"
-#include "\a3\ui_f\hpp\definecommongrids.inc"
+#define CENTER (0.5 * safeZoneW + safeZoneX)
+#define GUI_GRID_WAbs ((safezoneW / safezoneH) min 1.2)
+#define GUI_GRID_HAbs (GUI_GRID_WAbs / 1.2)
+#define GUI_GRID_X safezoneX
+#define GUI_GRID_Y (safezoneY + safezoneH - GUI_GRID_HAbs)
+#define GUI_GRID_H (GUI_GRID_HAbs / 25)
+#define GUI_GRID_W (GUI_GRID_WAbs / 40)
 
 class RscPicture;
 class RscFrame;
@@ -25,31 +20,37 @@ class RscTitles {
 		onload = "uiNamespace setVariable ['btc_dialog_RscDialogBox', _this select 0]";
 		onunload = "";
 		class ControlsBackground {
-			class RscPicture_1200: RscPicture {
+			class RscPicture_1200: RscPicture
+			{
 				idc = 1200;
 				text = "";
-				x = "0.340313 * safezoneW + safezoneX";
-				y = "0.032 * safezoneH + safezoneY";
-				w = "0.0433125 * safezoneW";
-				h = "0.077 * safezoneH";
+				x = "(0.5 * safeZoneW + safeZoneX) - ((25 * (((safezoneW / safezoneH) min 1.2)/40)) * 0.5)";
+				y = "-19 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY + safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))";
+				w = "5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+				h = "5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			};
-			class RscFrame_1801: RscFrame {
+			class RscFrame_1801: RscFrame
+			{
 				idc = 1801;
+				colorBackground[] = {0, 0, 0, 0.5};
+				colorText[] = {1,1,1,1};
 				text = "$STR_BTC_DIALOG_INCOMING_TRANS";
-				x = "0.340313 * safezoneW + safezoneX";
-				y = "0.01 * safezoneH + safezoneY";
-				w = "0.303187 * safezoneW";
-				h = "0.022 * safezoneH";
+				sizeEx = "0.6 * ((((safezoneW / safezoneH) min 1.2)/1.2)/25)";
+				x = "(0.5 * safeZoneW + safeZoneX) - ((25 * (((safezoneW / safezoneH) min 1.2)/40)) * 0.5)";
+				y = "-20 * ((((safezoneW / safezoneH) min 1.2) / 1.2)/25) + (safezoneY + safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))";
+				w = "24.5 * (((safezoneW / safezoneH) min 1.2)/40)";
+				h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.2)/25)";
 			};
-			class RscText_1000: RscTextMulti {
+			class RscText_1000: RscTextMulti
+			{
 				idc = 1000;
 				text = "";
-				sizeEx = 0.027;
+				sizeEx = "0.9 * ((((safezoneW / safezoneH) min 1.2)/1.2)/25)";
 				colorBackground[] = {0, 0, 0, 0.5};
-				x = "0.383625 * safezoneW + safezoneX";
-				y = "0.032 * safezoneH + safezoneY";
-				w = "0.259875 * safezoneW";
-				h = "0.077 * safezoneH";
+				x = "((0.5 * safeZoneW + safeZoneX) - ((15 * (((safezoneW / safezoneH) min 1.2)/40)) * 0.5))";
+				y = "-19 * ((((safezoneW / safezoneH) min 1.2) / 1.2)/25) + (safezoneY + safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))";
+				w = "19.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
+				h = "5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			};
 		};
 	};
