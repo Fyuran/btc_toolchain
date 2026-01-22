@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="btc_lift">
+    <Package name="Description">
+        <Container name="Logistic: Lift deploy ropes ">
+            <Key ID="STR_BTC_TOOLCHAIN_LIFT_HOOK">
+                <English>Hook</English>
+                <Czech>Hook</Czech>
+                <French>Accrocher</French>
+                <Spanish>Enganchar</Spanish>
+                <Italian>Aggancia</Italian>
+                <Portuguese>Enganchar</Portuguese>
+                <German>Einhaken</German>
+                <Chinesesimp>启用牵引</Chinesesimp>
+            </Key>
+            <Key ID="STR_BTC_TOOLCHAIN_LIFT_LDR_ACTIONHUD">
+                <English>Hud On\Off</English>
+                <Czech>Hud On\Off</Czech>
+                <French>Hud On\Off</French>
+                <Spanish>Hud Encendido\Apagado</Spanish>
+                <Italian>Hud Acceso\Spento</Italian>
+                <Portuguese>Hud Ligado\Desligado</Portuguese>
+                <German>Hud An\Aus</German>
+                <Chinesesimp>启用/关闭抬头显示(HUD)</Chinesesimp>
+            </Key>
+        </Container>
+    </Package>
+</Project>

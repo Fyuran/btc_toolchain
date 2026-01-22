@@ -34,6 +34,7 @@ params[
 	["_path", getMissionPath "conv_table.json", [""]]
 ];
 if(!hasInterface) exitWith {};
+disableSerialization;
 
 if (!canSuspend) exitWith {
 	[["%1: attempted to call in unscheduled envinronment, use spawn to call this function", __FILE_SHORT__], 6, "dialog"] call EFUNC(tools,debug);

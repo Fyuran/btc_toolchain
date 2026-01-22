@@ -29,7 +29,7 @@ params[
 	["_predicate", {false}, [{}]],
 	["_guiPosSize", [0.275,0.96,0.425,0.06], [[]], 4]
 ];
-
+disableSerialization;
 if (!isNil "btc_tools_ui_timer_handle") then {
 	terminate btc_tools_ui_timer_handle;
 	ctrlDelete((findDisplay 46) displayCtrl 6001); 

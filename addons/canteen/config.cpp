@@ -81,8 +81,6 @@ class CfgWeapons {
 };
 
 class CfgVehicles {
-	class Item_Base_F;
-
 	class ACE_Canteen_Item;
 	class ACE_Canteen_Nearly_Full_Item: ACE_Canteen_Item {
         displayName = "Canteen (Nearly-Full)";

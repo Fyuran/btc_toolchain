@@ -1,4 +1,4 @@
 #define VERSION 1.2
-#define VERSION_STR 1.2.0
-#define VERSION_AR 1, 2, 0
+#define VERSION_STR 1.2.5
+#define VERSION_AR 1, 2, 5
 #define REQUIRED_VERSION 2.20
