@@ -23,7 +23,7 @@ if(!params [
 	["_defuser",objNull,[objNull]],
 	["_obj",objNull,[objNull]]
 ]) exitWith {
-    [["%1: bad params: %2", __FILE_SHORT__, _this], 6, "c4booby"] call EFUNC(tools,debug);
+    [["%1: bad params: %2", __FILE__, _this], 6, "c4booby"] call EFUNC(tools,debug);
 };
 
 private _color_actions = [];

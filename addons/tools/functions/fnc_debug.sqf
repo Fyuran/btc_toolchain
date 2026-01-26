@@ -18,7 +18,7 @@ Returns:
 
 Examples:
     (begin example)
-        [["%1: Hello World", __FILE_SHORT__], 2, "debug"] call EFUNC(tools,debug);
+        [["%1: Hello World", __FILE__], 2, "debug"] call EFUNC(tools,debug);
     (end)
 
 Author:
@@ -33,7 +33,7 @@ params [
 ];
 if (_mode <= 0 || _mode > 15) exitWith {
     #ifdef BTC_DEBUG_DEBUG
-    [["%1: invalid _mode: %2 passed to btc_debug_fnc_message", __FILE_NAME__, _mode], 6, "debug"] call FUNC(debug);  
+    [["%1: invalid _mode: %2 passed to btc_debug_fnc_message", __FILE__, _mode], 6, "debug"] call FUNC(debug);  
     #endif
 };
 

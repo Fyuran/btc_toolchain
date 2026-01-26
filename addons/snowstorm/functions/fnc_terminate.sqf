@@ -20,6 +20,9 @@ Author:
 ---------------------------------------------------------------------------- */
 
 if(isServer) then {
+    #ifdef BTC_DEBUG_SNOWSTORM
+    [["%1: terminating snowstorm", __FILE__], 3, "snowstorm"] call EFUNC(tools,debug);
+    #endif
     if(!isNil QGVAR(JIP_CSounds)) then { //client sounds handler
         remoteExecCall ["", GVAR(JIP_CSounds)];
     };
@@ -32,12 +35,12 @@ if(isServer) then {
         terminate GVAR(windTrans); 
     };
 
-	0 setOvercast 0;
-	0 setRain 0;
-	0 setFog 0;
+    0 setOvercast 0;
     0 setGusts 0;
-    setWind [0, 0, true];
     forceWeatherChange;
+    TRANS_DELAY setWindStr 0;
+    TRANS_DELAY setRain 0;
+    TRANS_DELAY setFog 0;
 
     GVAR(timedSnowstorm) = false;
 };

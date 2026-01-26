@@ -52,10 +52,10 @@ params[
 ]; 
  
 if(isNull _obj) exitWith { 
-	[["%1: _obj is null", __FILE_SHORT__], 6, "tools"] call FUNC(debug);
+	[["%1: _obj is null", __FILE__], 6, "tools"] call FUNC(debug);
 }; 
 if(_waves isEqualTo []) exitWith {
-	[["%1: _waves is empty", __FILE_SHORT__], 6, "tools"] call FUNC(debug);
+	[["%1: _waves is empty", __FILE__], 6, "tools"] call FUNC(debug);
 }; 
  
 
@@ -70,8 +70,8 @@ if(_waves isEqualTo []) exitWith {
 		waitUntil { 
 			sleep 5;
             #ifdef BTC_DEBUG_TOOLS
-			[["%1: %2 - time remaining: %3", __FILE_SHORT__, _obj, _time - CBA_missionTime], 6, "tools"] call FUNC(debug);
-			[["%1: %2 - units remaining: %3 threshold: %4", __FILE_SHORT__, _obj, count _units, _threshold], 6, "tools"] call FUNC(debug);
+			[["%1: %2 - time remaining: %3", __FILE__, _obj, _time - CBA_missionTime], 6, "tools"] call FUNC(debug);
+			[["%1: %2 - units remaining: %3 threshold: %4", __FILE__, _obj, count _units, _threshold], 6, "tools"] call FUNC(debug);
             #endif  
 			(CBA_missionTime > _time) ||   
 			((count _units) <= _threshold) 
@@ -79,7 +79,7 @@ if(_waves isEqualTo []) exitWith {
  
 		private _wave = _x;
         #ifdef BTC_DEBUG_TOOLS
-		[["%1: %2 - Spawning wave: %3", __FILE_SHORT__, _obj, _forEachIndex + 1], 6, "tools"] call FUNC(debug);
+		[["%1: %2 - Spawning wave: %3", __FILE__, _obj, _forEachIndex + 1], 6, "tools"] call FUNC(debug);
         #endif
 		_wave apply {//wave 
 			private _group = _x; 
@@ -91,12 +91,12 @@ if(_waves isEqualTo []) exitWith {
 					["_class", "", [""]], 
 					["_quantity", 0, [123]] 
 				])) then { 
-					[["%1: invalid _units array: %2", __FILE_SHORT__, _x], 6, "tools"] call FUNC(debug);
+					[["%1: invalid _units array: %2", __FILE__, _x], 6, "tools"] call FUNC(debug);
 					continue; 
 				}; 
  
 				if(!(isClass (configFile >> "CfgVehicles" >> _class))) then { 
-					[["%1: %2 is not a valid class", __FILE_SHORT__, _class], 6, "tools"] call FUNC(debug);
+					[["%1: %2 is not a valid class", __FILE__, _class], 6, "tools"] call FUNC(debug);
 					continue; 
 				}; 
  
@@ -112,7 +112,7 @@ if(_waves isEqualTo []) exitWith {
 						private _index = _units find _unit; 
 						_units deleteAt _index;
 						#ifdef BTC_DEBUG_TOOLS
-						[["%1: Removing %2(%3) from %4", __FILE_SHORT__, _unit, _obj, _units], 3, "tools"] call FUNC(debug);
+						[["%1: Removing %2(%3) from %4", __FILE__, _unit, _obj, _units], 3, "tools"] call FUNC(debug);
 						#endif
 						_obj setVariable[QGVAR(wave_units), _units];
 					}]; 
@@ -123,7 +123,7 @@ if(_waves isEqualTo []) exitWith {
 						private _index = _units find _unit; 
 						_units deleteAt _index;
 						#ifdef BTC_DEBUG_TOOLS
-						[["%1: Removing %2(%3) from %4", __FILE_SHORT__, _unit, _obj, _units], 3, "tools"] call FUNC(debug);
+						[["%1: Removing %2(%3) from %4", __FILE__, _unit, _obj, _units], 3, "tools"] call FUNC(debug);
 						#endif
 						_obj setVariable[QGVAR(wave_units), _units];
 					}]; 
@@ -132,7 +132,7 @@ if(_waves isEqualTo []) exitWith {
 
 				_obj setVariable[QGVAR(wave_units), _units];
 				#ifdef BTC_DEBUG_TOOLS
-				[["%1: %2 now holds %3 units", __FILE_SHORT__, _obj, count _units], 3, "tools"] call FUNC(debug);
+				[["%1: %2 now holds %3 units", __FILE__, _obj, count _units], 3, "tools"] call FUNC(debug);
 				#endif
 				 
 			};
@@ -147,7 +147,7 @@ if(_waves isEqualTo []) exitWith {
 			private _leader = _playerLeaders select 0;
 			
             #ifdef BTC_DEBUG_TOOLS
-			[["%1: %2 heading for: %3", __FILE_SHORT__, _grp, _leader], 3, "tools"] call FUNC(debug);
+			[["%1: %2 heading for: %3", __FILE__, _grp, _leader], 3, "tools"] call FUNC(debug);
             #endif
 			private _wp = _grp addWaypoint [getPosASL _leader, -1];  
 			_wp setWaypointBehaviour "AWARE"; 

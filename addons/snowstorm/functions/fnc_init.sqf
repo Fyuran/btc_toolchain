@@ -1,5 +1,4 @@
 #include "script_component.hpp"
-#define TRANS_DELAY 10
 /* ----------------------------------------------------------------------------
 Function: btc_snowstorm_fnc_init
 
@@ -26,12 +25,12 @@ params[
 	["_fogValue", 0.5, [123]],
 	["_fogDecay", 0, [123]],
 	["_fogBase", 0, [123]],
-	["_duration", -1, [123]]
+	["_duration", -1, [123]] //passed duration should be seconds
 ];
 GVAR(duration) = -1;
 GVAR(timedSnowstorm) = false;
 if(_duration > 0) then { 
-	GVAR(duration) = CBA_missionTime + GVAR(duration);
+	GVAR(duration) = CBA_missionTime + (GVAR(duration) * 1000); //s to ms
 	GVAR(timedSnowstorm) = true;
 };
 
@@ -41,7 +40,7 @@ if(!isNil QGVAR(handle)) then { //make sure the previous handler is removed
 
 //ace will overwrite any kind of weather settings passed
 if(ACEGVAR(weather,windSimulation)) exitWith {
-	[["%1: snowfall could not be executed while ace is managing wind simulation", __FILE_SHORT__], 6, "snowstorm"] call EFUNC(tools,debug);
+	[["%1: snowfall could not be executed while ace is managing wind simulation", __FILE__], 6, "snowstorm"] call EFUNC(tools,debug);
 };
 
 0 setRainbow 0;

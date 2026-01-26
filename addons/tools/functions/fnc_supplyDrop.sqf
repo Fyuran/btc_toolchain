@@ -14,29 +14,29 @@ Returns:
 
 Examples:
     (begin example)
-	[ 
-		plane,  
+[ 
+	plane,  
+	[
+		"Box_East_WpsSpecial_F", 
+		"ACE_medicalSupplyCrate_advanced", 
+		"rhs_mags_crate", 
+		"Box_NATO_AmmoOrd_F", 
+		"rhsusf_m1a1fep_d", 
+		"rhsusf_m1025_d_s_m2"
+	],  
+	[
 		[
-			"Box_East_WpsSpecial_F", 
-			"ACE_medicalSupplyCrate_advanced", 
-			"rhs_mags_crate", 
-			"Box_NATO_AmmoOrd_F", 
-			"rhsusf_m1a1fep_d", 
-			"rhsusf_m1025_d_s_m2"
-		],  
+			["arifle_MX_F", 1], ["30Rnd_65x39_caseless_mag", 4], ["rhsusf_weap_MP7A2", 2], ["rhsusf_mag_40Rnd_46x30_FMJ", 3]
+		],
+		[],
+		[],
+		[],
 		[
-			[
-				["arifle_MX_F", 1], ["30Rnd_65x39_caseless_mag", 4], ["rhsusf_weap_MP7A2", 2], ["rhsusf_mag_40Rnd_46x30_FMJ", 3]
-			],
-			[],
-			[],
-			[],
-			[
-				["arifle_MX_GL_F", 2], ["rhs_mag_M441_HE", 10], ["30Rnd_65x39_caseless_mag", 10]
-			],
-			[]
-		] 
-	] call btc_tools_fnc_supplyDrop;
+			["arifle_MX_GL_F", 2], ["rhs_mag_M441_HE", 10], ["30Rnd_65x39_caseless_mag", 10]
+		],
+		[]
+	] 
+] call btc_tools_fnc_supplyDrop;
     (end)
 
 Author:
@@ -51,11 +51,11 @@ params[
 ];
 
 if (isNull _veh) exitWith {
-	[["%1: _obj is null", __FILE_SHORT__], 6, "tools"] call FUNC(debug);
+	[["%1: _obj is null", __FILE__], 6, "tools"] call FUNC(debug);
 };
 private _posATL = getPosATL _veh;		
 if (surfaceIsWater _posATL) exitWith {
-	[["%1: attempting to supply over water %2", __FILE_SHORT__, _posATL], 6, "tools"] call FUNC(debug);
+	[["%1: attempting to supply over water %2", __FILE__, _posATL], 6, "tools"] call FUNC(debug);
 };
 
 [_veh, _paradropClasses, _inventoryClasses] spawn {
@@ -68,13 +68,13 @@ if (surfaceIsWater _posATL) exitWith {
 	{
 		 //if object is a class create a vehicle else null check
 		if(!isClass (configFile >> "CfgVehicles" >> _x)) then {
-			[["%1: invalid class %2", __FILE_SHORT__, _x], 6, "tools"] call FUNC(debug);
+			[["%1: invalid class %2", __FILE__, _x], 6, "tools"] call FUNC(debug);
 		   continue; 
 		};
 		private _vehPosATL = getPosATL _veh;
 		
 		if((_vehPosATL#2) < 15) then {
-			[["%1: flight path too low, must be above 15m, currently: %2", __FILE_SHORT__, _vehPosATL#2], 6, "tools"] call FUNC(debug);
+			[["%1: flight path too low, must be above 15m, currently: %2", __FILE__, _vehPosATL#2], 6, "tools"] call FUNC(debug);
 			continue;
 		};
 		
@@ -112,12 +112,12 @@ if (surfaceIsWater _posATL) exitWith {
 					{(!isClass (configFile >> "CfgAmmo" >> _class))} &&
 					{(!isClass (configFile >> "CfgMagazines" >> _class))}
 				) then {
-					[["%1: invalid class %2", __FILE_SHORT__, _class], 6, "tools"] call FUNC(debug);
+					[["%1: invalid class %2", __FILE__, _class], 6, "tools"] call FUNC(debug);
 					continue;
 				};
 				
 				if !([_supply, _class] call CBA_fnc_canAddItem) then {
-					[["%1: no inventory room for: %2", __FILE_SHORT__, _class], 6, "tools"] call FUNC(debug);
+					[["%1: no inventory room for: %2", __FILE__, _class], 6, "tools"] call FUNC(debug);
 					continue;
 				};
 				
@@ -151,5 +151,5 @@ if (surfaceIsWater _posATL) exitWith {
 };
 
 #ifdef BTC_DEBUG_TOOLS
-[["%1: Spawning supplies...", __FILE_SHORT__, _class], 3, "tools"] call FUNC(debug);
+[["%1: Spawning supplies...", __FILE__, _class], 3, "tools"] call FUNC(debug);
 #endif

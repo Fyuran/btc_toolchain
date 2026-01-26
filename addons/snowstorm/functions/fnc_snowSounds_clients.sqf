@@ -72,14 +72,4 @@ GVAR(indoor_handle) = [{
             }, 59, []] call CBA_fnc_addPerFrameHandler;
         };
     };
-
-    #ifdef BTC_DEBUG_SNOWSTORM
-    private _predicate = {
-        private _pos1 = getPosWorldVisual player;
-        private _pos2 = _pos1 vectorAdd [0, 0, 10];
-        private _objects = lineIntersectsWith[_pos1, _pos2, player, objNull, true];
-        (_objects#0) isKindOf "House"
-    };
-    Points1 set[0, [_pos1, _pos2, _predicate]];
-    #endif
 }, 0.1, []] call CBA_fnc_addPerFrameHandler;
